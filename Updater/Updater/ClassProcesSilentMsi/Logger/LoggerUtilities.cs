@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Updater.Logger;
 
 namespace msiAplication.ClassProcesSilentMsi.LoggerMethods
 {
@@ -33,26 +34,26 @@ namespace msiAplication.ClassProcesSilentMsi.LoggerMethods
             return File.Exists(path);
         }
 
-        public void WriteFileMethodLogger(string path, string exception)
+        public void WriteFileMethodLogger(string path, MethodLoggerDatas methodLoggerData)
         {
             using (var tw = new StreamWriter(path, true))
             {
-                this.AddDatasFile(tw, exception);
+                this.AddDatasFile(tw, methodLoggerData);
             }
         }
 
-        public void CreateFileMethodLogger(string path,  string exception)
+        public void CreateFileMethodLogger(string path, MethodLoggerDatas methodLoggerData)
         {
             using (StreamWriter sw = File.CreateText(path))
             {
-                this.AddDatasFile(sw, exception);
+                this.AddDatasFile(sw, methodLoggerData);
             }
         }
 
-        private void AddDatasFile(StreamWriter tw, string exception)
+        private void AddDatasFile(StreamWriter tw, MethodLoggerDatas methodLoggerData)
         {
             tw.WriteLine("No se ha podido realizar el proceso de actualización por la siguiente excepción: ");
-            tw.WriteLine(exception);
+            tw.WriteLine(methodLoggerData.Error);
             tw.WriteLine("Con fecha y hora :" + DateTime.Now.ToString());
             tw.WriteLine("\r\n");
             tw.WriteLine("\r\n");

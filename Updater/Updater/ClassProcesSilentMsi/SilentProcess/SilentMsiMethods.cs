@@ -10,18 +10,15 @@ namespace msiAplication.ClassProcesSilentMsi
 {
     public class SilentMsiMethods
     {
-        private string versionMsi;
-
-        public SilentMsiMethods(string versionMsi)
+        public SilentMsiMethods()
         {
-            this.versionMsi = versionMsi;
         }
         public void DesinstallOldLocalAplicationMsi()
         {
             //necesito el msi antiguo para desinstalarlo 
             Process process = new Process();
             process.StartInfo.FileName = "msiexec.exe";
-            process.StartInfo.Arguments = "/x C:\\proyectos\\hefame\\Updater\\OldVersionMsi\\" + this.versionMsi + ".msi" +
+            process.StartInfo.Arguments = "/x C:\\proyectos\\hefame\\Updater\\OldVersionMsi\\HefameSetup.msi" +
                 " /qn /log " + @"C:\\proyectos\\hefame\\Updater\\Log\\LogSilentDesInstall_" + DateTime.Now.Year.ToString() + "_" +
                 DateTime.Now.Month.ToString() + "_" + DateTime.Now.Day.ToString() + ".log";
             process.Start();
@@ -32,7 +29,7 @@ namespace msiAplication.ClassProcesSilentMsi
         {
             Process process = new Process();
             process.StartInfo.FileName = "msiexec.exe";
-            process.StartInfo.Arguments = "/i C:\\proyectos\\hefame\\Updater\\NewVersionMsi\\" + this.versionMsi + ".msi" +
+            process.StartInfo.Arguments = "/i C:\\proyectos\\hefame\\Updater\\NewVersionMsi\\HefameSetup.msi" +
                 " /quiet /qn /log " + @"C:\proyectos\hefame\Updater\Log\SilentInstall_" + DateTime.Now.Year.ToString() + "_" +
                 DateTime.Now.Month.ToString() + "_" + DateTime.Now.Day.ToString() + ".log";
             process.StartInfo.Verb = "runas";

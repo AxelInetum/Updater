@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Updater.Logger;
 
 namespace msiAplication.ClassProcesSilentMsi.LoggerMethods
 {
@@ -22,7 +23,7 @@ namespace msiAplication.ClassProcesSilentMsi.LoggerMethods
 
         }
 
-        public void CreateLog(string exception)
+        public void CreateLog(MethodLoggerDatas MethodLoggerData)
         {
             //creamos el directorio de logs sino existe
             _loggerUtilities.CreateFolderLogger(@"C:\proyectos\hefame\Updater\MethodLogs\MethodLogs");
@@ -31,12 +32,12 @@ namespace msiAplication.ClassProcesSilentMsi.LoggerMethods
             //si el fichelo existe por fecha y ruta grabamos en la siguiente linea 
             if (_loggerUtilities.ExistFileLogger(this._pathString))
             {
-                _loggerUtilities.WriteFileMethodLogger(this._pathString, exception);
+                _loggerUtilities.WriteFileMethodLogger(this._pathString, MethodLoggerData);
             }
             //si el fichero no existe lo creamos de nuevo
             else
             {
-                _loggerUtilities.CreateFileMethodLogger(this._pathString, exception);
+                _loggerUtilities.CreateFileMethodLogger(this._pathString, MethodLoggerData);
             }
         }
     }

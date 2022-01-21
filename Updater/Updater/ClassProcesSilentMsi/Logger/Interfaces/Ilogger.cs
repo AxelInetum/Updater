@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Updater.Logger;
 
 namespace msiAplication.ClassProcesSilentMsi.Interfaces
 {
-    interface Ilogger
+    public interface Ilogger
     {
-          void CreateLog(string exception);
+          void CreateLog(MethodLoggerDatas datas);
     }
 }

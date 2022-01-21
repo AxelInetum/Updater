@@ -12,21 +12,19 @@ namespace msiAplication.ClassProcesSilentMsi
 {
     public class HttpsMethods
     {
-        private string httpRemotServer = "";
+        public string httpRemotServer = "";
         private WebClient client;
         private CertificateWebClient certificateWebClient;
         private string localPathNewVersionMsi;
-        private string newMsiVersion;
 
-        public HttpsMethods(string url , string newVersionMsi)
+        public HttpsMethods(string url)
         {
             httpRemotServer = url;
-            newMsiVersion = newVersionMsi;
             X509Certificate2 cert = new X509Certificate2();
             ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(ValidateServerCertificate);
             certificateWebClient = new CertificateWebClient(cert);
             client = new WebClient();
-            localPathNewVersionMsi = @"C:\\proyectos\\hefame\\Updater\\NewVersionMsi\\" + newMsiVersion + ".msi";
+            localPathNewVersionMsi = @"C:\\proyectos\\hefame\\Updater\\NewVersionMsi\\HefameSetup.msi";
         }
 
         public void HttpsDownloadNewVersionMsi()
@@ -45,5 +43,6 @@ namespace msiAplication.ClassProcesSilentMsi
         {
             return true;
         }
+
     }
 }

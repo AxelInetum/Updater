@@ -50,13 +50,20 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ClassProcesSilentMsi\Https\HttpsMethods.cs" />
-    <Compile Include="ClassProcesSilentMsi\Https\LastVersionDatas.cs" />
-    <Compile Include="ClassProcesSilentMsi\Interfaces\Ilogger.cs" />
-    <Compile Include="ClassProcesSilentMsi\LoggerMethods\LoggerMethod.cs" />
-    <Compile Include="ClassProcesSilentMsi\LoggerMethods\LoggerUtilities.cs" />
+    <Compile Include="ClassProcesSilentMsi\Https\WebServicesDatasVersions.cs" />
+    <Compile Include="ClassProcesSilentMsi\Logger\Interfaces\Ilogger.cs" />
+    <Compile Include="ClassProcesSilentMsi\Logger\LoggerMethods\LoggerMethod.cs" />
+    <Compile Include="ClassProcesSilentMsi\Logger\LoggerUtilities.cs" />
+    <Compile Include="ClassProcesSilentMsi\Logger\LoggerMethods\MethodLoggerDatas.cs" />
     <Compile Include="ClassProcesSilentMsi\MsiUtilities\MsiAplicationUtilities.cs" />
+    <Compile Include="ClassProcesSilentMsi\SilentProcess\DatasSilentProcess.cs" />
+    <Compile Include="ClassProcesSilentMsi\SilentProcess\InitProcessSilent.cs" />
     <Compile Include="ClassProcesSilentMsi\SilentProcess\ProcessSilentMsi.cs" />
     <Compile Include="ClassProcesSilentMsi\SilentProcess\SilentMsiMethods.cs" />
+    <Compile Include="ClassProcesSilentMsi\VersionData\VersionDataConectorF.cs" />
+    <Compile Include="ClassProcesSilentMsi\Xml\DatasHefameXml.cs" />
+    <Compile Include="ClassProcesSilentMsi\Xml\XmlReaderConfig.cs" />
+    <Compile Include="ClassProcesSilentMsi\Xml\XmlWriterConfig.cs" />
     <Compile Include="UpdaterInterface.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,5 +97,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
