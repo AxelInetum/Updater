@@ -1,0 +1,10 @@
+C:\proyectos\hefame\Updater\Updater\bin\Debug\Updater.exe.config
+C:\proyectos\hefame\Updater\Updater\bin\Debug\Updater.exe
+C:\proyectos\hefame\Updater\Updater\bin\Debug\Updater.pdb
+C:\proyectos\hefame\Updater\Updater\obj\Debug\Updater.csproj.AssemblyReference.cache
+C:\proyectos\hefame\Updater\Updater\obj\Debug\Updater.Properties.Resources.resources
+C:\proyectos\hefame\Updater\Updater\obj\Debug\Updater.UpdaterInterface.resources
+C:\proyectos\hefame\Updater\Updater\obj\Debug\Updater.csproj.GenerateResource.cache
+C:\proyectos\hefame\Updater\Updater\obj\Debug\Updater.csproj.CoreCompileInputs.cache
+C:\proyectos\hefame\Updater\Updater\obj\Debug\Updater.exe
+C:\proyectos\hefame\Updater\Updater\obj\Debug\Updater.pdb

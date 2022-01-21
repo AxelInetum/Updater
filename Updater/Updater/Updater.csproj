@@ -46,11 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="ClassProcesSilentMsi\Https\CertificateWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClassProcesSilentMsi\Https\HttpsMethods.cs" />
+    <Compile Include="ClassProcesSilentMsi\Https\LastVersionDatas.cs" />
+    <Compile Include="ClassProcesSilentMsi\Interfaces\Ilogger.cs" />
+    <Compile Include="ClassProcesSilentMsi\LoggerMethods\LoggerMethod.cs" />
+    <Compile Include="ClassProcesSilentMsi\LoggerMethods\LoggerUtilities.cs" />
+    <Compile Include="ClassProcesSilentMsi\MsiUtilities\MsiAplicationUtilities.cs" />
+    <Compile Include="ClassProcesSilentMsi\SilentProcess\ProcessSilentMsi.cs" />
+    <Compile Include="ClassProcesSilentMsi\SilentProcess\SilentMsiMethods.cs" />
+    <Compile Include="UpdaterInterface.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="UpdaterInterface.Designer.cs">
+      <DependentUpon>UpdaterInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,6 +74,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UpdaterInterface.resx">
+      <DependentUpon>UpdaterInterface.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

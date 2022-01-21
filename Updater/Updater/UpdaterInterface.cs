@@ -1,4 +1,5 @@
-﻿using System;
+﻿using msiAplication.ClassProcesSilentMsi;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,17 @@ using System.Windows.Forms;
 
 namespace Updater
 {
-    public partial class Form1 : Form
+    public partial class UpdaterInterface : Form
     {
-        public Form1()
+        public UpdaterInterface()
         {
             InitializeComponent();
+            ProcessSilentMsi.InitProcessSilentMsi();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
