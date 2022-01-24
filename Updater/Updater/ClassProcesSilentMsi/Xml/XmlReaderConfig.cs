@@ -28,7 +28,6 @@ namespace Updater.Xml
             {
                 this.versionConectorF  = this.GetValue("parametros", "versionConector");
                 this.versionUpdater = this.GetValue("parametros", "versionUpdater");
-
             }
             catch (Exception ex)
             {
@@ -61,7 +60,6 @@ namespace Updater.Xml
                 _LoggerMethod.CreateLog(_MethoLoggerDatas);
                 return "";
             }
-
         }
     }
 }

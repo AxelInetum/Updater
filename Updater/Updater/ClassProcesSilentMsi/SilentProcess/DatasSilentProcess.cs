@@ -8,7 +8,6 @@ namespace Updater.ClassProcesSilentMsi.SilentProcess
 {
     public class DatasSilentProcess
     {
-
         public string urlUpdaterPilot;
         public string urlUpdaterMaster;
         public string theLastVersionUpdaterPilot;

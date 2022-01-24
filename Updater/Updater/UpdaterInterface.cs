@@ -1,6 +1,7 @@
 ﻿using msiAplication.ClassProcesSilentMsi;
 using msiAplication.ClassProcesSilentMsi.Interfaces;
 using msiAplication.ClassProcesSilentMsi.LoggerMethods;
+using PopupWithTimer.Xml;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,9 +47,10 @@ namespace Updater
             //incialiamos el objeto de descarga de fichero 
             HttpsMethods HttpsMethods = new HttpsMethods("");
             TheLastVersionDatas theLastVersionDatas;
-          //
+            XmlWriterConfig XmlWriterConfigs = new XmlWriterConfig(_LoggerMethod); 
+            //
 
-          //conecto F 
+            //conecto F 
             //objeto con los datos de que versión se ha de comparar la piloto o la master (primero miramos la piloto y luego la master) 
             theLastVersionDatas = initProcessSilent.MsiAplicationUtilities.WhatVersionCompareConectorF(webServicesDatasVersions);
             //le seteamos la url de la ultima version
@@ -67,31 +69,41 @@ namespace Updater
             {
                 //ejecutamos el proceso de actualización para el conector F 
                 processSilentMsi.StartProcessSilent(initProcessSilent);
+                //actualizamos el tag del xml.config de la ultima version del conectorF
+                XmlWriterConfigs.UpdateXmlConfigLasVersionConectorF(theLastVersionHttps.ToString());
+                //cerramoa el aplicativo al cerrarse el updater detectara que se ha cerrado y lo reabrira con la version nueva instalada   
             }
-          //
+            //
 
-          /*
-          //Updater F 
-            //objeto con los datos de que versión se ha de comparar la piloto o la master (primero miramos la piloto y luego la master) 
-            theLastVersionDatas = initProcessSilent.MsiAplicationUtilities.WhatVersionCompareUpdater(webServicesDatasVersions);
-            //le seteamos la url de la ultima version
-            HttpsMethods.httpRemotServer = theLastVersionDatas.urlLastVersion;
-            //le agregamos al objeto que tiene todas las variables 
-            initProcessSilent.HttpsMethods = HttpsMethods;
-            //cojemos la version actual y la ultima version , pasamos los dos a objeto version
-            currentversion = new Version(initProcessSilent.ReadDataConfigXml.versionConectorF);
-            theLastVersionHttps = new Version(theLastVersionDatas.theLastVersion);
-            //guardamos la version actual del conector F y la ultima version que proviene del webservices de hefame 
-            initProcessSilent.currentVersion = currentversion;
-            initProcessSilent.TheLastVersion = theLastVersionHttps;
-            //comparamos la version actual con la remota (si la version actual es inferior generamos el proceso)
-            if (initProcessSilent.MsiAplicationUtilities.CompareVersions(initProcessSilent.currentVersion, initProcessSilent.TheLastVersion) < 0)
-            {
-                //ejecutamos el proceso de actualización para el conector F 
-                processSilentMsi.StartProcessSilent(initProcessSilent);
-            }
-          //
-          */
+            /*
+            //Updater F 
+              //objeto con los datos de que versión se ha de comparar la piloto o la master (primero miramos la piloto y luego la master) 
+              theLastVersionDatas = initProcessSilent.MsiAplicationUtilities.WhatVersionCompareUpdater(webServicesDatasVersions);
+              //le seteamos la url de la ultima version
+              HttpsMethods.httpRemotServer = theLastVersionDatas.urlLastVersion;
+              //le agregamos al objeto que tiene todas las variables 
+              initProcessSilent.HttpsMethods = HttpsMethods;
+              //cojemos la version actual y la ultima version , pasamos los dos a objeto version
+              currentversion = new Version(initProcessSilent.ReadDataConfigXml.versionConectorF);
+              theLastVersionHttps = new Version(theLastVersionDatas.theLastVersion);
+              //guardamos la version actual del conector F y la ultima version que proviene del webservices de hefame 
+              initProcessSilent.currentVersion = currentversion;
+              initProcessSilent.TheLastVersion = theLastVersionHttps;
+              //comparamos la version actual con la remota (si la version actual es inferior generamos el proceso)
+              if (initProcessSilent.MsiAplicationUtilities.CompareVersions(initProcessSilent.currentVersion, initProcessSilent.TheLastVersion) < 0)
+              {
+                  //ejecutamos el proceso de actualización para el conector F 
+                  processSilentMsi.StartProcessSilent(initProcessSilent);
+                  //actualizamo los tags del xml .config 
+                  //actualizamos el tag del xml.config de la ultima version del conectorF
+                  XmlWriterConfigs.UpdateXmlConfigLasVersionConectorF(theLastVersionHttps.ToString());
+                  //cerramoa el aplicativo al cerrarse el updater detectara que se ha cerrado y lo reabrira con la version nueva instalada 
+                  Environment.Exit(0);
+              }
+              Environment.Exit(0);  
+            //
+            */
+            Environment.Exit(0);
         }
 
         private void button1_Click(object sender, EventArgs e)

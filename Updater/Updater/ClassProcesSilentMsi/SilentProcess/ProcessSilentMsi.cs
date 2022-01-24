@@ -37,8 +37,6 @@ namespace msiAplication.ClassProcesSilentMsi
                     initProcessSilent.MsiAplicationUtilities.MoveMsiOldErVersionFolder();
                     //limpiamos la version descargada https de la carpeta de nueva version
                     initProcessSilent.MsiAplicationUtilities.DeleteNewVersionMsi();
-                    //cerramoa el aplicativo al cerrarse el updater detectara que se ha cerrado y lo reabrira con la version nueva instalada 
-                    Environment.Exit(0);
                 }           
             }
             catch(Exception ex)

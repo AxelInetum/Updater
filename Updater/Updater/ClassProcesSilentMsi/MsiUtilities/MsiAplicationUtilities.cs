@@ -56,12 +56,6 @@ namespace msiAplication.ClassProcesSilentMsi
             return theLastVersionDatas;
         }
 
-
-
-
-
-
-
         public void MoveMsiOldErVersionFolder()
         {
             string origin = "C:\\proyectos\\hefame\\Updater\\NewVersionMsi\\HefameSetup.msi";
@@ -74,9 +68,5 @@ namespace msiAplication.ClassProcesSilentMsi
             string origin = "C:\\proyectos\\hefame\\Updater\\NewVersionMsi\\HefameSetup.msi";
             File.Delete(origin);
         }
-
-
-
-
     }
 }
