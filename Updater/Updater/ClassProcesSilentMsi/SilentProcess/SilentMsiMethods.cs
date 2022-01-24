@@ -18,8 +18,8 @@ namespace msiAplication.ClassProcesSilentMsi
             //necesito el msi antiguo para desinstalarlo 
             Process process = new Process();
             process.StartInfo.FileName = "msiexec.exe";
-            process.StartInfo.Arguments = "/x C:\\proyectos\\hefame\\Updater\\OldVersionMsi\\HefameSetup.msi" +
-                " /qn /log " + @"C:\\proyectos\\hefame\\Updater\\LogSilentCommands\\LogSilentDesInstall_" + DateTime.Now.Year.ToString() + "_" +
+            process.StartInfo.Arguments = "/x C:\\FarmaciaFmas\\OldVersionMsi\\HefameSetup.msi" +
+                " /qn /log " + @"C:\\FarmaciaFmas\\LogSilentCommands\\LogSilentDesInstall_" + DateTime.Now.Year.ToString() + "_" +
                 DateTime.Now.Month.ToString() + "_" + DateTime.Now.Day.ToString() + ".log";
             process.Start();
             process.WaitForExit();
@@ -29,19 +29,12 @@ namespace msiAplication.ClassProcesSilentMsi
         {
             Process process = new Process();
             process.StartInfo.FileName = "msiexec.exe";
-            process.StartInfo.Arguments = "/i C:\\proyectos\\hefame\\Updater\\NewVersionMsi\\HefameSetup.msi" +
-                " /quiet /qn /log " + @"C:\proyectos\hefame\Updater\LogSilentCommands\SilentInstall_" + DateTime.Now.Year.ToString() + "_" +
+            process.StartInfo.Arguments = "/i C:\\FarmaciaFmas\\NewVersionMsi\\HefameSetup.msi" +
+                " /quiet /qn /log " + @"C:\\FarmaciaFmas\\LogSilentCommands\SilentInstall_" + DateTime.Now.Year.ToString() + "_" +
                 DateTime.Now.Month.ToString() + "_" + DateTime.Now.Day.ToString() + ".log";
             process.StartInfo.Verb = "runas";
             process.Start();
             process.WaitForExit();
-        }
-
-        public void OpenNewApplicationMsi()
-        {
-            Process p = new Process();
-            p.StartInfo.FileName = @"C:\Program Files (x86)\HefameSilentSetup\HefameSilentSetup\HefameApp\msiAplication.exe";
-            p.Start();
         }
     }
 }

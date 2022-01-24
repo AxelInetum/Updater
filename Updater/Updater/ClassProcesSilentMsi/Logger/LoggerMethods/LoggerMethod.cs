@@ -26,9 +26,9 @@ namespace msiAplication.ClassProcesSilentMsi.LoggerMethods
         public void CreateLog(MethodLoggerDatas MethodLoggerData)
         {
             //creamos el directorio de logs sino existe
-            _loggerUtilities.CreateFolderLogger(@"C:\proyectos\hefame\Updater\MethodLogs");
+            _loggerUtilities.CreateFolderLogger(@"C:\FarmaciaFmas\MethodLogs");
             //creamos la ruta completa
-            this._pathString = System.IO.Path.Combine(@"C:\proyectos\hefame\Updater\MethodLogs", this._filename);
+            this._pathString = System.IO.Path.Combine(@"C:\FarmaciaFmas\MethodLogs", this._filename);
             //si el fichelo existe por fecha y ruta grabamos en la siguiente linea 
             if (_loggerUtilities.ExistFileLogger(this._pathString))
             {

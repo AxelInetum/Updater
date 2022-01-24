@@ -24,7 +24,7 @@ namespace msiAplication.ClassProcesSilentMsi
             ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(ValidateServerCertificate);
             certificateWebClient = new CertificateWebClient(cert);
             client = new WebClient();
-            localPathNewVersionMsi = @"C:\\proyectos\\hefame\\Updater\\NewVersionMsi\\HefameSetup.msi";
+            localPathNewVersionMsi = @"C:\\FarmaciaFmas\\NewVersionMsi\HefameSetup.msi";
         }
 
         public void HttpsDownloadNewVersionMsi()
