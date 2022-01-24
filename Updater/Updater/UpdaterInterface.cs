@@ -1,4 +1,6 @@
 ﻿using msiAplication.ClassProcesSilentMsi;
+using msiAplication.ClassProcesSilentMsi.Interfaces;
+using msiAplication.ClassProcesSilentMsi.LoggerMethods;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,12 +17,14 @@ namespace Updater
 {
     public partial class UpdaterInterface : Form
     {
+        private Ilogger _LoggerMethod = new LoggerMethod();
+
         public UpdaterInterface()
         {
             InitializeComponent();
 
             Timer MyTimer = new Timer();
-            MyTimer.Interval = (1000);
+            MyTimer.Interval = (10000);
             MyTimer.Tick += new EventHandler(InitTimerProcessUpdater);
             MyTimer.Start();
 
@@ -29,18 +33,16 @@ namespace Updater
        {
           //parte comun
             //Creamos el objeto con todas lav variable que se necesitan  
-            InitProcessSilent initProcessSilent = new InitProcessSilent();
-            //inicializamos los atributos 
-            initProcessSilent.StartInitAtributesProcessSilent();
+            InitProcessSilent initProcessSilent = new InitProcessSilent(_LoggerMethod);
             //objeto para rellenar los datos de we b 
-            WebServicesDatasVersions webServicesDatasVersions = new WebServicesDatasVersions();
+            WebServicesDatasVersions webServicesDatasVersions = new WebServicesDatasVersions(_LoggerMethod);
             //rellanamos el objeto con los datos de la url y la ultima version del conector y update 
             webServicesDatasVersions.GetDatasWebServicesDatasVersions();
             //variables para rellenar la version actual del xml y la recibida de servidor https 
             Version currentversion;
             Version theLastVersionHttps;
             //ejecutamos el proceso para el conector 
-            ProcessSilentMsi processSilentMsi = new ProcessSilentMsi();
+            ProcessSilentMsi processSilentMsi = new ProcessSilentMsi(_LoggerMethod);
             //incialiamos el objeto de descarga de fichero 
             HttpsMethods HttpsMethods = new HttpsMethods("");
             TheLastVersionDatas theLastVersionDatas;

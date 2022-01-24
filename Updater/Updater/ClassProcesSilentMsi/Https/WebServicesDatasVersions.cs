@@ -1,8 +1,10 @@
-﻿using System;
+﻿using msiAplication.ClassProcesSilentMsi.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Updater.Logger;
 
 namespace msiAplication.ClassProcesSilentMsi
 {
@@ -16,9 +18,12 @@ namespace msiAplication.ClassProcesSilentMsi
         public string urlConectorFMaster;
         public string ThelastVersionConectorFPilot;
         public string ThelastVersionConectorFMaster;
+        private Ilogger _LoggerMethod;
+        private MethodLoggerDatas _MethoLoggerDatas = new MethodLoggerDatas();
 
-        public WebServicesDatasVersions()
+        public WebServicesDatasVersions(Ilogger loggerMethod)
         {
+            _LoggerMethod = loggerMethod;
             urlUpdaterPilot = "";
             urlUpdaterMaster = "";
             ThelastVersionUpdaterPilot = "";
@@ -31,14 +36,24 @@ namespace msiAplication.ClassProcesSilentMsi
 
         public void GetDatasWebServicesDatasVersions()
         {
-            urlUpdaterPilot = "https://localhost:443/HefameSetup.msi";
-            urlUpdaterMaster = "https://localhost:443/HefameSetup.msi";
-            ThelastVersionUpdaterPilot = "1.1.2";
-            ThelastVersionUpdaterMaster = "1.1.2";
-            urlConectorFPilot = "https://localhost:443/HefameSetup.msi";
-            urlConectorFMaster = "https://localhost:443/HefameSetup.msi";
-            ThelastVersionConectorFPilot = "1.1.2";
-            ThelastVersionConectorFMaster = "1.1.2";
+            try
+            {
+                urlUpdaterPilot = "https://localhost:443/HefameSetup.msi";
+                urlUpdaterMaster = "https://localhost:443/HefameSetup.msi";
+                ThelastVersionUpdaterPilot = "1.1.2";
+                ThelastVersionUpdaterMaster = "1.1.2";
+                urlConectorFPilot = "https://localhost:443/HefameSetup.msi";
+                urlConectorFMaster = "https://localhost:443/HefameSetup.msi";
+                ThelastVersionConectorFPilot = "1.1.2";
+                ThelastVersionConectorFMaster = "1.1.2";
+            }
+
+            catch (Exception ex)
+            {
+                _MethoLoggerDatas.MethodLoggerDatasFill("Metodo: GetDatasWebServicesDatasVersions ", " clase: WebServicesDatasVersions", " Error: "
+                            + ex.ToString(), " Fecha: " + DateTime.Now.ToString());
+                _LoggerMethod.CreateLog(_MethoLoggerDatas);
+            }
         }
     }
 

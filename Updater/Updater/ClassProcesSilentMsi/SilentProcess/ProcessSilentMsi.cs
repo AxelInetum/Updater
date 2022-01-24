@@ -7,14 +7,17 @@ using System.Threading.Tasks;
 using msiAplication.ClassProcesSilentMsi.LoggerMethods;
 using Updater.ClassProcesSilentMsi.VersionData;
 using Updater.ClassProcesSilentMsi.SilentProcess;
+using Updater.Logger;
 
 namespace msiAplication.ClassProcesSilentMsi
 {
     public class ProcessSilentMsi
     {
-       public ProcessSilentMsi()
-       { 
-        
+        private Ilogger _LoggerMethod;
+        private MethodLoggerDatas _MethoLoggerDatas = new MethodLoggerDatas();
+        public ProcessSilentMsi(Ilogger loggerMethod)
+       {
+            _LoggerMethod = loggerMethod;
        }
 
        public void StartProcessSilent(InitProcessSilent initProcessSilent)
@@ -40,6 +43,9 @@ namespace msiAplication.ClassProcesSilentMsi
             }
             catch(Exception ex)
             {
+                _MethoLoggerDatas.MethodLoggerDatasFill("Metodo: StartProcessSilent ", " clase: ProcessSilentMsi", " Error: "
+                         + ex.ToString(), " Fecha: " + DateTime.Now.ToString());
+                _LoggerMethod.CreateLog(_MethoLoggerDatas);
 
             }
         }
