@@ -6,11 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Updater.ClassProcesSilentMsi.ProcessValidatedFarmacia;
 using Updater.ClassProcesSilentMsi.SilentProcess;
 using Updater.ClassProcesSilentMsi.VersionData;
 
@@ -19,16 +21,20 @@ namespace Updater
     public partial class UpdaterInterface : Form
     {
         private Ilogger _LoggerMethod = new LoggerMethod();
+        private ProcessValidatedFarmaciaRun _ProcessValidatedFarmaciaRun = new ProcessValidatedFarmaciaRun(new LoggerMethod());
 
         public UpdaterInterface()
         {
             InitializeComponent();
+            Timer myTimerProcessUpdater = new Timer();
+            myTimerProcessUpdater.Interval = (10000);
+            myTimerProcessUpdater.Tick += new EventHandler(InitTimerProcessUpdater);
+            myTimerProcessUpdater.Start();
 
-            Timer MyTimer = new Timer();
-            MyTimer.Interval = (10000);
-            MyTimer.Tick += new EventHandler(InitTimerProcessUpdater);
-            MyTimer.Start();
-
+            Timer myTimerValidatedProcessFarmacia = new Timer();
+            myTimerValidatedProcessFarmacia.Interval = (1000);
+            myTimerValidatedProcessFarmacia.Tick += new EventHandler(ValidatedProcessFarmaciaRun);
+            myTimerValidatedProcessFarmacia.Start();
         }
        private void InitTimerProcessUpdater(object sender, EventArgs e)
        {
@@ -105,7 +111,15 @@ namespace Updater
             */
             Environment.Exit(0);
         }
-
+       //metodo para comprobar que el farmacia + esta funcionando
+       private void ValidatedProcessFarmaciaRun(object sender, EventArgs e)
+       {
+           Process validatedFarmarciaRun =_ProcessValidatedFarmaciaRun.ProcessValidatedRun();
+           if (validatedFarmarciaRun ==null)
+           {
+                _ProcessValidatedFarmaciaRun.RunProcessFarmacia();
+           }
+       }
         private void button1_Click(object sender, EventArgs e)
         {
 

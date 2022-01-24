@@ -38,7 +38,6 @@ namespace PopupWithTimer.Xml
                 _MethoLoggerDatas.MethodLoggerDatasFill("Metodo: UpdateXmlConfigLasVersionConectorF ", " clase: XmlWriterConfig", " Error: "
                      + ex.ToString(), " Fecha: " + DateTime.Now.ToString());
                 _LoggerMethod.CreateLog(_MethoLoggerDatas);
-
             }
         }
 

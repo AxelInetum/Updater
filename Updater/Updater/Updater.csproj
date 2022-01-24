@@ -56,6 +56,7 @@
     <Compile Include="ClassProcesSilentMsi\Logger\LoggerUtilities.cs" />
     <Compile Include="ClassProcesSilentMsi\Logger\LoggerMethods\MethodLoggerDatas.cs" />
     <Compile Include="ClassProcesSilentMsi\MsiUtilities\MsiAplicationUtilities.cs" />
+    <Compile Include="ClassProcesSilentMsi\ProcessValidatedFarmacia\ProcessValidatedFarmaciaRun.cs" />
     <Compile Include="ClassProcesSilentMsi\SilentProcess\DatasSilentProcess.cs" />
     <Compile Include="ClassProcesSilentMsi\SilentProcess\InitProcessSilent.cs" />
     <Compile Include="ClassProcesSilentMsi\SilentProcess\ProcessSilentMsi.cs" />
