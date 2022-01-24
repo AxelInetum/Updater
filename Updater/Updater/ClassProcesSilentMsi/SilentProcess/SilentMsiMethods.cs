@@ -19,7 +19,7 @@ namespace msiAplication.ClassProcesSilentMsi
             Process process = new Process();
             process.StartInfo.FileName = "msiexec.exe";
             process.StartInfo.Arguments = "/x C:\\proyectos\\hefame\\Updater\\OldVersionMsi\\HefameSetup.msi" +
-                " /qn /log " + @"C:\\proyectos\\hefame\\Updater\\Log\\LogSilentDesInstall_" + DateTime.Now.Year.ToString() + "_" +
+                " /qn /log " + @"C:\\proyectos\\hefame\\Updater\\LogSilentCommands\\LogSilentDesInstall_" + DateTime.Now.Year.ToString() + "_" +
                 DateTime.Now.Month.ToString() + "_" + DateTime.Now.Day.ToString() + ".log";
             process.Start();
             process.WaitForExit();
@@ -30,7 +30,7 @@ namespace msiAplication.ClassProcesSilentMsi
             Process process = new Process();
             process.StartInfo.FileName = "msiexec.exe";
             process.StartInfo.Arguments = "/i C:\\proyectos\\hefame\\Updater\\NewVersionMsi\\HefameSetup.msi" +
-                " /quiet /qn /log " + @"C:\proyectos\hefame\Updater\Log\SilentInstall_" + DateTime.Now.Year.ToString() + "_" +
+                " /quiet /qn /log " + @"C:\proyectos\hefame\Updater\LogSilentCommands\SilentInstall_" + DateTime.Now.Year.ToString() + "_" +
                 DateTime.Now.Month.ToString() + "_" + DateTime.Now.Day.ToString() + ".log";
             process.StartInfo.Verb = "runas";
             process.Start();

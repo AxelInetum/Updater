@@ -106,10 +106,8 @@ namespace Updater
                   //cerramoa el aplicativo al cerrarse el updater detectara que se ha cerrado y lo reabrira con la version nueva instalada 
                   Environment.Exit(0);
               }
-              Environment.Exit(0);  
             //
             */
-            Environment.Exit(0);
         }
        //metodo para comprobar que el farmacia + esta funcionando
        private void ValidatedProcessFarmaciaRun(object sender, EventArgs e)
