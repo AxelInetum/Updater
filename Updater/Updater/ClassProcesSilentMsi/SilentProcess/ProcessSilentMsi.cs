@@ -8,6 +8,7 @@ using msiAplication.ClassProcesSilentMsi.LoggerMethods;
 using Updater.ClassProcesSilentMsi.VersionData;
 using Updater.ClassProcesSilentMsi.SilentProcess;
 using Updater.Logger;
+using FarmaciaFmas;
 
 namespace msiAplication.ClassProcesSilentMsi
 {
@@ -20,24 +21,16 @@ namespace msiAplication.ClassProcesSilentMsi
             _LoggerMethod = loggerMethod;
        }
 
-       public void StartProcessSilent(InitProcessSilent initProcessSilent)
+       public void StartProcessSilent(CommonDataProcessSilent commonDataProcessSilent , DatasPathSilentSetup datasPathSilentSetupObject)
        {
             try
-            {          
-                //bajamos la version del msi del https 
-                initProcessSilent.HttpsMethods.HttpsDownloadNewVersionMsi();
-                //comprobamos que se ha descargado correctamente comprobando que localmente existe el fichero 
-                if (initProcessSilent.HttpsMethods.HttpsCorrectDownloafileNewVersionMsi())
-                {
-                    //desinstalamos la versión antigua con su instalador propio  
-                    initProcessSilent.ProcessSilentMsiMethods.DesinstallOldLocalAplicationMsi();
-                    //instalamos la versión nueva descargada del https
-                    initProcessSilent.ProcessSilentMsiMethods.InstallNewLocalAplicationMsi();
-                    //movemos el instalador nuevo descargado a la carpeta de version antigua
-                    initProcessSilent.MsiAplicationUtilities.MoveMsiOldErVersionFolder();
-                    //limpiamos la version descargada https de la carpeta de nueva version
-                    initProcessSilent.MsiAplicationUtilities.DeleteNewVersionMsi();
-                }           
+            {
+                //desinstalamos la versión antigua con su instalador propio  
+                commonDataProcessSilent.ProcessSilentMsiMethods.DesinstallOldLocalAplicationMsi(datasPathSilentSetupObject._PathOldVersionMsiFile);
+                //instalamos la versión nueva descargada del https
+                commonDataProcessSilent.ProcessSilentMsiMethods.InstallNewLocalAplicationMsi(datasPathSilentSetupObject._PathNewversionMsiFile);
+                //movemos el instalador nuevo descargado a la carpeta de version antigua
+                commonDataProcessSilent.MsiAplicationUtilities.MoveMsiOldErVersionFolder(datasPathSilentSetupObject._PathOldVersionMsiFile, datasPathSilentSetupObject._PathNewversionMsiFile); 
             }
             catch(Exception ex)
             {

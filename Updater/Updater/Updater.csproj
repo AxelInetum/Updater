@@ -58,7 +58,7 @@
     <Compile Include="ClassProcesSilentMsi\MsiUtilities\MsiAplicationUtilities.cs" />
     <Compile Include="ClassProcesSilentMsi\ProcessValidatedFarmacia\ProcessValidatedFarmaciaRun.cs" />
     <Compile Include="ClassProcesSilentMsi\SilentProcess\DatasSilentProcess.cs" />
-    <Compile Include="ClassProcesSilentMsi\SilentProcess\InitProcessSilent.cs" />
+    <Compile Include="ClassProcesSilentMsi\SilentProcess\InitCommonProcessSilent.cs" />
     <Compile Include="ClassProcesSilentMsi\SilentProcess\ProcessSilentMsi.cs" />
     <Compile Include="ClassProcesSilentMsi\SilentProcess\SilentMsiMethods.cs" />
     <Compile Include="ClassProcesSilentMsi\VersionData\VersionDataConectorF.cs" />
@@ -101,6 +101,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imfarmacias_hefame_desplegara_11963_15100908.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ConectorHefame\Aracnida\FidelizaFarmatic\FarmaciaFmas.vbproj">
+      <Project>{b775f7aa-7890-45ab-b6e0-97f6b4d0ea0a}</Project>
+      <Name>FarmaciaFmas</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

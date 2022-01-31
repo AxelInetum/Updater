@@ -26,8 +26,8 @@ namespace Updater.Xml
         {
             try
             {
-                this.versionConectorF  = this.GetValue("parametros", "versionConector");
-                this.versionUpdater = this.GetValue("parametros", "versionUpdater");
+                this.versionConectorF  = this.GetValue("update", "versionConector");
+                this.versionUpdater = this.GetValue("update", "versionUpdate");
             }
             catch (Exception ex)
             {
@@ -37,7 +37,7 @@ namespace Updater.Xml
             }
         }
 
-        private string GetValue(string tag, string valor)
+        public string GetValue(string tag, string valor)
         {
             XmlNodeList nodeList = doc.GetElementsByTagName(tag);
             string value = null;

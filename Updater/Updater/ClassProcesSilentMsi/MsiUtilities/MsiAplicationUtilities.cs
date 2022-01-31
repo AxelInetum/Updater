@@ -56,17 +56,9 @@ namespace msiAplication.ClassProcesSilentMsi
             return theLastVersionDatas;
         }
 
-        public void MoveMsiOldErVersionFolder()
+        public void MoveMsiOldErVersionFolder(string completepathOldVersion , string completePathNewVersion)
         {
-            string origin = "C:\\FarmaciaFmas\\NewVersionMsi\\HefameSetup.msi";
-            string destiny = "C:\\FarmaciaFmas\\OldVersionMsi\\HefameSetup.msi";
-            File.Copy(origin, destiny, true);
-        }
-
-        public void DeleteNewVersionMsi()
-        {
-            string origin = "C:\\FarmaciaFmas\\HefameSetup.msi";
-            File.Delete(origin);
+            File.Copy(completepathOldVersion, completePathNewVersion, true);
         }
     }
 }

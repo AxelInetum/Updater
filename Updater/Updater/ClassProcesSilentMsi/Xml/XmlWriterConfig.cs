@@ -24,23 +24,6 @@ namespace PopupWithTimer.Xml
              doc.Load(this.pathXml);
         }
 
-        public void UpdateXmlConfigLasVersionConectorF(string ConectorF)
-        {
-            try
-            {
-                XmlNode root = doc.DocumentElement;
-                XmlNode conectorFVersion = root.SelectSingleNode("parametros").SelectSingleNode("versionConector");
-                conectorFVersion.InnerText = ConectorF;
-                doc.Save(this.pathXml);         
-            }
-            catch (Exception ex)
-            {
-                _MethoLoggerDatas.MethodLoggerDatasFill("Metodo: UpdateXmlConfigLasVersionConectorF ", " clase: XmlWriterConfig", " Error: "
-                     + ex.ToString(), " Fecha: " + DateTime.Now.ToString());
-                _LoggerMethod.CreateLog(_MethoLoggerDatas);
-            }
-        }
-
         public void UpdateXmlConfigLasVersionUpdater(string updater)
         {
             try

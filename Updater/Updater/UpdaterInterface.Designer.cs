@@ -55,6 +55,7 @@ namespace Updater
             this.MaximizeBox = false;
             this.Name = "UpdaterInterface";
             this.Text = "Hefame -Updater";
+            this.Load += new System.EventHandler(this.UpdaterInterface_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

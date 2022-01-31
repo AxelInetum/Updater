@@ -1,0 +1,210 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+FarmaciaF+
+</name>
+</assembly>
+<members>
+<member name="T:FarmaciaFmas.My.Resources.Resources">
+<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+<member name="P:FarmaciaFmas.My.Resources.Resources.ResourceManager">
+<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member>
+<member name="P:FarmaciaFmas.My.Resources.Resources.Culture">
+<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member>
+<member name="P:FarmaciaFmas.My.Resources.Resources.Icons_Land_Vista_Multimedia_Play_1_Normal">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FarmaciaFmas.My.Resources.Resources.nuticon_87878">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FarmaciaFmas.My.Resources.Resources.salir_al_boton_de_aplicacion_318_76960">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FarmaciaFmas.My.Resources.Resources.stop_red_256">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="M:FarmaciaFmas.UnycopNext.StockWithoutSalesforce(FarmaciaFmas.IDbFactoria)">
+ <summary>
+ Prepara y envía el stock de la farmacia a SAP
+ </summary>
+ <param name="ObjetoDbConexion">Opcional, contiene la conexión a la BD del programa de gestión</param>
+ <returns>Devuelve un objeto de tipo ReturnStockModel</returns>
+</member>
+<member name="M:FarmaciaFmas.UnycopNext.Kiosko(FarmaciaFmas.IDbFactoria)">
+ <summary>
+ Método que prepara y sincroniza con Magento los PVPs y Existencias de los productos de la farmacia
+ </summary>
+ <param name="ObjetoDbConexion">Opcional, contiene la conexión a la BD del programa de gestión</param>
+ <returns>Devuelve un entero con el resultado (1 ok, 0 error)</returns>
+</member>
+<member name="T:FarmaciaFmas.WS_ClieAPI">
+ <summary>
+ Clase encargada de gestionar las llamadas a la API Rest de Hefame Informática
+ </summary>
+ <example>
+ Para crear una instancia (el login se hace automáticamente en el constructor):
+ Dim ws_clieapi as WS_ClieAPI()
+ </example>
+</member>
+<member name="M:FarmaciaFmas.WS_ClieAPI.Login">
+ <summary>
+ Método encargado de obtener el token y setearlo en la propiedad Token de la clase
+ </summary>
+ <returns>Devuelve un JObject con la respuesta del servicio</returns>
+</member>
+<member name="M:FarmaciaFmas.WS_ClieAPI.ActBD">
+ <summary>
+ Comprueba los campos del XML de configuración de la aplicación.
+ </summary>
+ <returns>Devuelve un List(Of ActBD_Models.ActBDResponse) con todos los campos obligatorios que debe tener creados la aplicación en el XML.</returns>
+</member>
+<member name="M:FarmaciaFmas.WS_ClieAPI.ActualizaXML">
+ <summary>
+ Realiza una consulta a la API de Hefame Informática para comprobar si hay que actualizar algún valor del XML de configuración.
+ <remarks>Tras leer y aplicar los cambios, realiza una petición PUT para confirmar los cambios en el SQL de Hefame Informática</remarks>
+ </summary>
+</member>
+<member name="M:FarmaciaFmas.WS_ClieAPI.ActualizaDatos">
+ <summary>
+ Realiza una "picadura" en el servidor SQL de Hefame Informática actualizando todos los datos de la aplicación
+ </summary>
+ <returns>Devuelve un objeto Picadura_Models.PicaduraResponse con la respuesta del servicio.</returns>
+</member>
+<member name="M:FarmaciaFmas.WS_ClieAPI.GetDatosAracnida">
+ <summary>
+ Obtiene los datos de la aplicación almacenados en el SQL de Hefame Informática (versión_piloto, versión_update_piloto...).
+ </summary>
+ <returns>Devuelve un objeto Picadura_Models.PicaduraResponse con la respuesta del servicio.</returns>
+</member>
+<member name="M:FarmaciaFmas.WS_ClieAPI.ChequearVersionMaestraAsync(System.String,System.String)">
+ <summary>
+ Chequea la versión de la aplicación instalada contra el servicio y si es necesario descarga un nuevo .msi (ya lleva la lógica para comprobar los dos campos, version_piloto y version_maestra)
+ </summary>
+ <param name="versionInstalada">Versión de la aplicación instala en la farmacia</param>
+ <param name="aplicacion_A_Actualizar">Aplicación que se va a actualizar (Conector o Update)</param>
+ <returns>Devuelva un string con la ruta del fichero .msi descargado, vacio sino se ha descargado nada</returns>
+</member>
+<member name="M:FarmaciaFmas.WS_ClieAPI.DescargarInstaller(System.String,System.String)">
+ <summary>
+ Descarga una versión pasada como parámetro y la guarda en la ruta C:/FarmaciaFmas/Update/.
+ </summary>
+ <param name="version">Número de la versión a descargar</param>
+ <returns>Retorna el path del fichero descargado, vacío si no ha descargado nada.</returns>
+</member>
+<member name="M:FarmaciaFmas.WS_ClieAPI.GetExternalIp">
+ <summary>
+ Obtiene la IP Externa de la farmacia
+ </summary>
+ <returns>Devuelve un string con la IP</returns>
+</member>
+<member name="P:FarmaciaFmas.WS_ClieAPI.Servicio">
+ <summary>
+ Contiene el EndPoint del servicio
+ </summary>
+ <value>El valor por defecto es ""</value>
+ <returns>Devuelve el valor de la propiedad</returns>
+</member>
+<member name="P:FarmaciaFmas.WS_ClieAPI.URL">
+ <summary>
+ Contiene la URL del servicio REST API
+ </summary>
+ <value>El valor por defecto es ""</value>
+ <returns>Devuelve el valor de la propiedad</returns>
+</member>
+<member name="P:FarmaciaFmas.WS_ClieAPI.Token">
+ <summary>
+ Contiene el Token devuelto por el servicio REST API
+ </summary>
+ <value>El valor por defecto es ""</value>
+ <returns>Devuelve el valor de la propiedad</returns>
+</member>
+<member name="T:FarmaciaFmas.WS_Salesforce">
+ <summary>
+ Clase encargada de conectar con Salesforce
+ </summary>
+</member>
+<member name="M:FarmaciaFmas.WS_Salesforce.Login">
+ <summary>
+ Método para obtener el toquen de Salesforce y setearlo en la propiedad Token de la clase
+ </summary>
+ <returns>Retorna un JObject con el token</returns>
+</member>
+<member name="P:FarmaciaFmas.WS_Salesforce.Servicio">
+ <summary>
+ Guarda el servicio a llamar de la API de Salesforce
+ </summary>
+ <value>El valor por defecto es el pasado por parámetro en el constructor</value>
+ <returns>Devuelve el valor de la propiedad</returns>
+</member>
+<member name="P:FarmaciaFmas.WS_Salesforce.URL">
+ <summary>
+ Guarda la URL del RestAPI de Salesforce
+ </summary>
+ <value>El valor por defecto es el pasado por parámetro en el constructor</value>
+ <returns>Devuelve el valor de la propiedad</returns>
+</member>
+<member name="P:FarmaciaFmas.WS_Salesforce.Token">
+ <summary>
+ Propiedad que guarda el Token de Salesforce devuelto por el método Login
+ </summary>
+ <value>El valor por defecto es ""</value>
+ <returns>Devuelve el valor de la propiedad</returns>
+</member>
+<member name="T:FarmaciaFmas.WS_SAP">
+ <summary>
+ Clase encargada de realizar conexiones mediante RestAPI a SAP
+ </summary>
+</member>
+<member name="M:FarmaciaFmas.WS_SAP.Zsf_customer_data(System.String,System.String,System.Byte[])">
+ <summary>
+ Método para llamar al servicio SAP zsf_customer_data
+ </summary>
+ <param name="service">EndPoint del servicio /basic /logistic /comercial /financial...</param>
+ <param name="cod_sap">Código SAP del cliente</param>
+ <param name="jsonDataBytes">Array de Bytes con la trama de datos a enviar (para POST)</param>
+ <returns>Retorna una List(Of Zsf_customer_data_Models.Zsf_customer_dataResponse)</returns>
+</member>
+<member name="M:FarmaciaFmas.WS_SAP.ChequeaCodSAP(System.String)">
+ <summary>
+ Devuelve el codigoSAP y nombre de un código chequeado contra SAP
+ </summary>
+ <param name="codSAP">Código SAP de la farmacia a chequear contra el servicio</param>
+ <returns>Retorna un string con el código leído en la respuesta del servicio</returns>
+</member>
+<member name="M:FarmaciaFmas.WS_SAP.Enviar_Stock(System.String,System.Byte[])">
+ <summary>
+ Método para enviar la información de Stock de la farmacia, independiente del programa informático que tenga.
+ </summary>
+ <param name="servicio">Nombre del servicio de SAP, guardado en el TextBox txtNomServStock</param>
+ <param name="jsonDataBytes">Array de Bytes con la información a enviar</param>
+ <returns>Retorna un objeto del modelo Zfm_stock_aracnida_Models.Zfm_stock_aracnidaResponse con la respuesta del servicio SAP</returns>
+</member>
+<member name="M:FarmaciaFmas.WS_SAP.Enviar_Ventas(System.String,System.Byte[])">
+ <summary>
+ Método para enviar la información de Ventas de la farmacia, independiente del programa informático que tenga.
+ </summary>
+ <param name="servicio">Nombre del servicio de SAP, guardado en el TextBox txtNomServVentas</param>
+ <param name="jsonDataBytes">Array de Bytes con la información a enviar</param>
+ <returns>Retorna un objeto del modelo Zfm_ventas_aracnida_Models.Zfm_ventas_aracnidaResponse con la respuesta del servicio SAP</returns>
+</member>
+</members>
+</doc>
